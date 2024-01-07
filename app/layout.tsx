@@ -22,7 +22,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
-          <Header />
+          {/* <Header /> */}
           {children}
         </ThemeProvider>
       </body>

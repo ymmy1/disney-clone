@@ -13,7 +13,6 @@ function Header() {
         <Image src={logo} alt="Disney+" width={120} height={120} className='cursor-pointer invert-0 dark:invert' />
       </Link>
       <div className="flex space-x-2">
-        {/* GenreList */}
         <GenreDropDown />
         <SearchInput />
         <ThemeToggler />
