@@ -8,9 +8,10 @@ type Props = {
   isVertical?: boolean;
 };
 function MoviesCorousel({ title, movies, isVertical }: Props) {
+  console.log(movies);
   return (
     <div className='z-50'>
-      <h2>{title}</h2>
+      <h2 className='text-2xl font-bold px-10 py-2'>{title}</h2>
       <div
         className={cn(
           'flex space-x-4 overflow-scroll px-5 lg:px-10 py-5 scrollbar-hide',
