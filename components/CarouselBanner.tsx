@@ -6,6 +6,7 @@ import { Movie } from '@/types';
 import Image from 'next/image';
 import getImagePath from '@/lib/getImagePath';
 import { Button } from './ui/button';
+import Link from 'next/link';
 
 Autoplay.globalOptions = { delay: 8000 };
 
@@ -31,17 +32,20 @@ function CarouselBanner({ movies }: { movies: Movie[] }) {
             />
 
             <div className='hidden md:inline absolute mt-0 top-0 pt-40 xl:pt-52 left-0 lg:mt-40 bg-transparent z-20 h-full w-full bg-gradient-to-r from-gray-900/90 via-transparent to-transparent p-10 space-y-5 text-white '>
-              <h2 className='text-5xl font-bold max-w-xl z-50'>
-                {movie.title}
-              </h2>
+              <h2 className='text-5xl font-bold max-w-xl'>{movie.title}</h2>
               <p className='max-w-xl line-clamp-3'>{movie.overview}</p>
-              <Button>Learn More</Button>
+              <Link
+                href={`movieDetails/${movie.id}`}
+                className='bg-[#F1F3F4] px-4 py-2 rounded text-[#1A1C29] hover:bg-[#F1F3F4]/90 mt-10 flex w-fit'
+              >
+                Learn More
+              </Link>
             </div>
           </div>
         ))}
       </div>
 
-      <div className='absolute inset-0 bg-gradient-to-b from-gray-200/0 via-gray-900/25 to-gray-300 dark:to-[#1A1C29]' />
+      <div className='absolute inset-0 bg-gradient-to-b from-gray-200/0 via-gray-900/25 to-[#F1F3F4] dark:to-[#1A1C29]  pointer-events-none' />
     </div>
   );
 }

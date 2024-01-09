@@ -21,8 +21,6 @@ async function SearchPage({ params: { term } }: Props) {
   );
   const popularMovies = await getSpecificMovies('popular');
 
-  // Api for search movies
-  // Api for popular movies
   return (
     <div className='max-w-7xl mx-auto'>
       <div className='flex flex-col space-y-4 mt-32 xl:mt-42'>
