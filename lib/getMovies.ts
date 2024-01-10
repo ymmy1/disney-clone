@@ -1,6 +1,6 @@
-import { SearchResults } from '@/types';
+import { Movie, SearchResults } from '@/types';
 
-async function fetchFromTMDB(url: URL, cacheTime?: number) {
+async function fetchFromTMDB(url: URL, name?: string, cacheTime?: number) {
   url.searchParams.set('include_adult', 'false');
   url.searchParams.set('include_video', 'false');
   url.searchParams.set('sort_by', 'popularity.desc');
@@ -19,7 +19,15 @@ async function fetchFromTMDB(url: URL, cacheTime?: number) {
   };
 
   const response = await fetch(url.toString(), options);
-  const data = (await response.json()) as SearchResults;
+  let data;
+  if (name === 'single') {
+    const r = (await response.json()) as Movie;
+    data = r;
+    console.log(data);
+  } else {
+    const r = (await response.json()) as SearchResults;
+    data = r.results;
+  }
 
   return data;
 }
@@ -29,8 +37,9 @@ export async function getSpecificMovies(
   id?: string,
   keywords?: string,
   term?: string
-) {
+): Promise<Movie | Movie[] | undefined> {
   let url;
+  let link;
 
   if (name === 'discover') {
     url = new URL('https://api.themoviedb.org/3/discover/movie');
@@ -39,11 +48,14 @@ export async function getSpecificMovies(
   } else if (name === 'search') {
     url = new URL('https://api.themoviedb.org/3/search/movie');
     term && url.searchParams.set('query', term);
+  } else if (name === 'single') {
+    url = new URL(`https://api.themoviedb.org/3/movie/${id}`);
+    link = name;
   } else {
     url = new URL(`https://api.themoviedb.org/3/movie/${name}`);
   }
-  const data = await fetchFromTMDB(url);
-  return data.results;
+  const data = await fetchFromTMDB(url, link);
+  return data;
 }
 
 export async function getSearchedMovies() {}

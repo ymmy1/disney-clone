@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' suppressHydrationWarning={true}>
+    <html className='scrollbar-hide' lang='en' suppressHydrationWarning={true}>
       <body className='bg-[#F1F3F4] dark:bg-[#1A1C29]'>
         <ThemeProvider attribute='class' defaultTheme='dark'>
           <Header />

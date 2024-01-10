@@ -5,7 +5,6 @@ import Autoplay from 'embla-carousel-autoplay';
 import { Movie } from '@/types';
 import Image from 'next/image';
 import getImagePath from '@/lib/getImagePath';
-import { Button } from './ui/button';
 import Link from 'next/link';
 
 Autoplay.globalOptions = { delay: 8000 };
@@ -24,7 +23,6 @@ function CarouselBanner({ movies }: { movies: Movie[] }) {
         {movies.map((movie) => (
           <div key={movie.id} className='flex-full min-w-0 relative'>
             <Image
-              key={movie.id}
               src={getImagePath(movie.backdrop_path, true)}
               alt=''
               width={1920}
