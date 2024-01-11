@@ -60,7 +60,7 @@ async function MovieDetails({ params: { id } }: Props) {
       </div>
       <div className='w-[900px]'>
         <div className='flex justify-between'>
-          <h1 className='text-5xl font-bold'>
+          <h1 className='text-5xl font-bold mb-5'>
             {movie.title} ({movie.release_date?.split('-')[0]})
           </h1>
           <div>

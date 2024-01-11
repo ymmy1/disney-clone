@@ -9,7 +9,7 @@ type Props = {
 };
 function MoviesCorousel({ title, movies, isVertical }: Props) {
   return (
-    <div className='z-50'>
+    <div className='z-40'>
       <h2 className='text-2xl font-bold px-10 py-2'>{title}</h2>
       <div
         className={cn(

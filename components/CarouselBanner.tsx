@@ -34,7 +34,7 @@ function CarouselBanner({ movies }: { movies: Movie[] }) {
               <p className='max-w-xl line-clamp-3'>{movie.overview}</p>
               <Link
                 href={`movieDetails/${movie.id}`}
-                className='bg-[#F1F3F4] px-4 py-2 rounded text-[#383B50] hover:bg-[#F1F3F4]/90 mt-10 flex w-fit'
+                className='bg-[#F1F3F4] px-4 py-2 rounded text-black font-medium hover:bg-[#F1F3F4]/90 mt-10 flex w-fit'
               >
                 Learn More
               </Link>
