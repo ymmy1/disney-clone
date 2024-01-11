@@ -34,7 +34,7 @@ function CarouselBanner({ movies }: { movies: Movie[] }) {
               <p className='max-w-xl line-clamp-3'>{movie.overview}</p>
               <Link
                 href={`movieDetails/${movie.id}`}
-                className='bg-[#F1F3F4] px-4 py-2 rounded text-[#1A1C29] hover:bg-[#F1F3F4]/90 mt-10 flex w-fit'
+                className='bg-[#F1F3F4] px-4 py-2 rounded text-[#383B50] hover:bg-[#F1F3F4]/90 mt-10 flex w-fit'
               >
                 Learn More
               </Link>
@@ -43,7 +43,7 @@ function CarouselBanner({ movies }: { movies: Movie[] }) {
         ))}
       </div>
 
-      <div className='absolute inset-0 bg-gradient-to-b from-gray-200/0 via-gray-900/25 to-[#F1F3F4] dark:to-[#1A1C29]  pointer-events-none' />
+      <div className='absolute inset-0 bg-gradient-to-b from-gray-200/0 via-gray-900/25 to-[#F1F3F4] dark:to-[#383B50]  pointer-events-none' />
     </div>
   );
 }

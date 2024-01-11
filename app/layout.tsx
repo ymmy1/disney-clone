@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html className='scrollbar-hide' lang='en' suppressHydrationWarning={true}>
-      <body className='bg-[#F1F3F4] dark:bg-[#1A1C29]'>
+      <body className='bg-[#F1F3F4] dark:bg-[#383B50]'>
         <ThemeProvider attribute='class' defaultTheme='dark'>
           <Header />
           {children}
