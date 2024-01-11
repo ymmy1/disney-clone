@@ -23,7 +23,6 @@ async function fetchFromTMDB(url: URL, name?: string, cacheTime?: number) {
   if (name === 'single') {
     const r = (await response.json()) as Movie;
     data = r;
-    console.log(data);
   } else {
     const r = (await response.json()) as SearchResults;
     data = r.results;

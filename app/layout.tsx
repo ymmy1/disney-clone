@@ -17,6 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html className='scrollbar-hide' lang='en' suppressHydrationWarning={true}>
+      <head>
+        <link rel='icon' href='/disney-icon.ico' sizes='any' />
+      </head>
       <body className='bg-[#F1F3F4] dark:bg-[#383B50]'>
         <ThemeProvider attribute='class' defaultTheme='dark'>
           <Header />
