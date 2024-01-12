@@ -27,7 +27,7 @@ async function MovieDetails({ params: { id } }: Props) {
     }
   };
   return (
-    <div className='my-32 flex gap-10 justify-center'>
+    <div className='my-32 flex gap-10 lg:flex-row lg:justify-center lg:items-start items-center px-4 flex-col justify-center'>
       {/* <pre className='whitespace-pre-wrap'>
         {JSON.stringify(movie, null, 2)}
       </pre> */}
@@ -60,7 +60,7 @@ async function MovieDetails({ params: { id } }: Props) {
           </a>
         )}
       </div>
-      <div className='w-[900px]'>
+      <div className='lg:w-[900px] w-full'>
         <div className='flex justify-between'>
           <h1 className='text-5xl font-bold mb-5'>
             {movie.title} ({movie.release_date?.split('-')[0]})
