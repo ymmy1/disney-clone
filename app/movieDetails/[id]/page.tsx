@@ -38,7 +38,8 @@ async function MovieDetails({ params: { id } }: Props) {
             alt={movie.title}
             width={500}
             height={1000}
-            className='shadow-2xl rounded-sm overflow-hidden '
+            className='shadow-2xl rounded-sm overflow-hidden'
+            style={{ width: 'auto', height: 'auto' }}
           />
         ) : (
           <Image
@@ -46,6 +47,7 @@ async function MovieDetails({ params: { id } }: Props) {
             alt={movie.title}
             width={1000}
             height={500}
+            style={{ width: 'auto', height: 'auto' }}
           />
         )}
         {movie.homepage && (
@@ -104,7 +106,7 @@ async function MovieDetails({ params: { id } }: Props) {
                       alt={company.name || 'Production Company'}
                       width={128}
                       height={128}
-                      className='drop-shadow-2xl'
+                      className='drop-shadow-2xl w-auto h-auto'
                     />
                   </div>
                 )
@@ -120,7 +122,9 @@ async function MovieDetails({ params: { id } }: Props) {
                 src={`https://flagsapi.com/${country.iso_3166_1}/shiny/64.png`}
                 alt={country.name || 'Production Country'}
                 width={64}
-                height={100}
+                height={64}
+                className='drop-shadow-2xl'
+                style={{ width: 'auto', height: 'auto' }}
               />
             ))}
           </div>

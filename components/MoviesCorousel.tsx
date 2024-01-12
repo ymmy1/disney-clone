@@ -1,6 +1,7 @@
 import { Movie } from '@/types';
 import MovieCard from './MovieCard';
 import { cn } from '@/lib/utils';
+import React from 'react';
 
 type Props = {
   title: string;
@@ -18,10 +19,9 @@ function MoviesCorousel({ title, movies, isVertical }: Props) {
         )}
       >
         {movies?.map((movie) => (
-          <>
+          <React.Fragment key={movie.id}>
             {isVertical ? (
               <div
-                key={movie.id}
                 className={cn(
                   isVertical &&
                     'flex flex-col space-y-5 mb-5 items-center lg:flex-row space-x-5'
@@ -37,9 +37,9 @@ function MoviesCorousel({ title, movies, isVertical }: Props) {
                 </div>
               </div>
             ) : (
-              <MovieCard key={movie.id} movie={movie} />
+              <MovieCard movie={movie} />
             )}
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>

@@ -6,6 +6,7 @@ async function fetchFromTMDB(url: URL, name?: string, cacheTime?: number) {
   url.searchParams.set('sort_by', 'popularity.desc');
   url.searchParams.set('language', 'en-US');
   url.searchParams.set('page', '1');
+  url.searchParams.set('with_companies', '2|3475|15935');
 
   const options: RequestInit = {
     method: 'GET',
