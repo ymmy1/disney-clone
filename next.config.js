@@ -12,6 +12,12 @@ const nextConfig = {
       },
     ],
   },
+  exportPathMap: async function () {
+    return {
+      '/': { page: '/' },
+      // Add other pages if needed
+    };
+  },
 };
 
 module.exports = nextConfig;
