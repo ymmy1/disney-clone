@@ -12,9 +12,6 @@ const nextConfig = {
       },
     ],
   },
-  // Add the following lines for static HTML export
-  target: 'experimental-serverless-trace',
-  basePath: '',
 };
 
 module.exports = nextConfig;
