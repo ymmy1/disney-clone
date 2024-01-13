@@ -1,5 +1,6 @@
 import MoviesCorousel from '@/components/MoviesCorousel';
 import { getSpecificMovies } from '@/lib/getMovies';
+import { Movie } from '@/types';
 
 type Props = {
   params: {
@@ -16,7 +17,11 @@ async function GenrePage({ params: { id }, searchParams: { genre } }: Props) {
     <div className='max-w-7xl mx-auto'>
       <div className='flex flex-col space-y-5 mt-32 xl:mt-42'>
         <h2 className='text-6xl font-bold px-10'>Results for: {genre}</h2>
-        <MoviesCorousel movies={movies} isVertical title={'Movies'} />
+        <MoviesCorousel
+          movies={movies as Movie[]}
+          isVertical
+          title={'Movies'}
+        />
       </div>
     </div>
   );
