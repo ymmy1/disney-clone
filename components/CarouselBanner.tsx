@@ -6,60 +6,38 @@ import { Movie } from '@/types';
 import Image from 'next/image';
 import getImagePath from '@/lib/getImagePath';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
 Autoplay.globalOptions = { delay: 8000 };
 
 function CarouselBanner({ movies }: { movies: Movie[] }) {
-  const [screenResolution, setScreenResolution] = useState(getScreenResolution);
   const [emblaRef] = useEmblaCarousel({ loop: true, duration: 100 }, [
     Autoplay(),
   ]);
-
-  function getScreenResolution() {
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
-    return { width: screenWidth, height: screenHeight };
-  }
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenResolution(getScreenResolution());
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <div
       className='overflow-hidden lg:-mt-40 relative cursor-pointer'
       ref={emblaRef}
     >
-      <div className='flex'>
+      <div className='flex h-full'>
         {movies.map((movie) => (
-          <div key={movie.id} className='flex-full min-w-0 relative '>
+          <div key={movie.id} className='flex-full min-w-0 relative h-[100dvh]'>
             <Image
               src={getImagePath(movie.backdrop_path, true)}
               alt=''
-              width={screenResolution.width}
-              height={screenResolution.height}
+              fill
+              style={{ objectFit: 'cover' }}
             />
 
-            <div className='hidden md:inline absolute mt-0 top-0 pt-40 xl:pt-52 2xl:pt-104 left-0 lg:mt-40 bg-transparent z-20 h-full w-full bg-gradient-to-r from-gray-900/90 via-transparent to-transparent p-10 space-y-5 text-white '>
+            <div className='inline absolute mt-0 top-0 pt-40 xl:pt-52 2xl:pt-104 left-0 lg:mt-20 xl:mt-42 bg-transparent z-20 h-full w-full bg-gradient-to-r from-gray-900/90 via-transparent to-transparent p-10 space-y-5 text-white '>
               <h2 className='text-5xl font-bold max-w-xl'>{movie.title}</h2>
               <p className='max-w-xl line-clamp-3'>{movie.overview}</p>
-              {screenResolution.height > 770 && (
-                <Link
-                  href={`movieDetails/${movie.id}`}
-                  className='bg-[#F1F3F4] px-4 py-2 rounded text-black font-medium hover:bg-[#F1F3F4]/90 mt-10 flex w-fit'
-                >
-                  Learn More
-                </Link>
-              )}
+              <Link
+                href={`movieDetails/${movie.id}`}
+                className='bg-[#F1F3F4] px-4 py-2 rounded text-black font-medium hover:bg-[#F1F3F4]/90 mt-10 flex w-fit'
+              >
+                Learn More
+              </Link>
             </div>
           </div>
         ))}
