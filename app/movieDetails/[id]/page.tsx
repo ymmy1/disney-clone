@@ -121,8 +121,8 @@ async function MovieDetails({ params: { id } }: Props) {
                 key={country.name}
                 src={`https://flagsapi.com/${country.iso_3166_1}/shiny/64.png`}
                 alt={country.name || 'Production Country'}
-                width={64}
-                height={64}
+                width={128}
+                height={128}
                 className='drop-shadow-2xl'
                 style={{ width: 'auto', height: 'auto' }}
               />

@@ -10,7 +10,6 @@ import Link from 'next/link';
 Autoplay.globalOptions = { delay: 8000 };
 
 function CarouselBanner({ movies }: { movies: Movie[] }) {
-  const isPortrait = window.innerWidth < window.innerHeight;
   const [emblaRef] = useEmblaCarousel({ loop: true, duration: 100 }, [
     Autoplay(),
   ]);
@@ -24,23 +23,19 @@ function CarouselBanner({ movies }: { movies: Movie[] }) {
         {movies.map((movie) => (
           <div
             key={movie.id}
-            className='flex-full min-w-0 relative h-[90dvh] lg:h-[100dvh]'
+            className='flex-full min-w-0 relative h-[40dvh] md:h-[100dvh]'
           >
             <Image
-              src={
-                isPortrait
-                  ? getImagePath(movie.poster_path, true)
-                  : getImagePath(movie.backdrop_path, true)
-              }
+              src={getImagePath(movie.backdrop_path, true)}
               alt=''
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
             />
 
-            <div className='inline absolute mt-0 top-0 pt-40 xl:pt-52 2xl:pt-104 left-0 lg:mt-20 xl:mt-42 bg-transparent z-20 h-full w-full bg-gradient-to-r from-gray-900/90 via-transparent to-transparent p-10 space-y-5 text-white '>
-              {!isPortrait && (
-                <h2 className='text-5xl font-bold max-w-xl'>{movie.title}</h2>
-              )}
+            <div className='hidden md:inline absolute mt-0 top-0 pt-40 xl:pt-52 2xl:pt-104 left-0 lg:mt-20 xl:mt-42 bg-transparent z-20 h-full w-full bg-gradient-to-r from-gray-900/90 via-transparent to-transparent p-10 space-y-5 text-white '>
+              <h2 className=' text-2xl lg:text-5xl font-bold max-w-xl'>
+                {movie.title}
+              </h2>
               <p className='max-w-xl line-clamp-3'>{movie.overview}</p>
               <Link
                 href={`movieDetails/${movie.id}`}
