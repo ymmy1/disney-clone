@@ -12,19 +12,9 @@ const nextConfig = {
       },
     ],
   },
-  async generateStaticParams() {
-    // Customize the static paths as needed
-    return [
-      {
-        path: '/',
-        html: await import('fs').promises.readFile(
-          'path-to-your-homepage.html',
-          'utf8'
-        ),
-      },
-      // Add other paths if needed
-    ];
-  },
+  // Add the following lines for static HTML export
+  target: 'experimental-serverless-trace',
+  basePath: '',
 };
 
 module.exports = nextConfig;
