@@ -12,11 +12,18 @@ const nextConfig = {
       },
     ],
   },
-  exportPathMap: async function () {
-    return {
-      '/': { page: '/' },
-      // Add other pages if needed
-    };
+  async generateStaticParams() {
+    // Customize the static paths as needed
+    return [
+      {
+        path: '/',
+        html: await import('fs').promises.readFile(
+          'path-to-your-homepage.html',
+          'utf8'
+        ),
+      },
+      // Add other paths if needed
+    ];
   },
 };
 
