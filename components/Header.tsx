@@ -17,7 +17,7 @@ function Header() {
           className='cursor-pointer invert-0 dark:invert'
         />
       </Link>
-      <div className='flex gap-2 flex-col md:flex-row items-end w-[30vw]'>
+      <div className='flex gap-2 flex-col md:flex-row items-end w-[30vw] justify-end'>
         <GenreDropDown />
         <SearchInput />
         <ThemeToggler />
