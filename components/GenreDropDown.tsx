@@ -27,7 +27,7 @@ async function GenreDropDown() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className='bg-[#F1F3F4] dark:bg-[#020817] flex justify-center items-center tex t-black dark:text-white px-4 rounded-lg'>
+      <DropdownMenuTrigger className='bg-[#F1F3F4] dark:bg-[#020817] flex justify-center items-center tex t-black dark:text-white px-3 py-2 md:px-4 rounded-sm'>
         Genre <ChevronDown className='ml-1' />
       </DropdownMenuTrigger>
 
