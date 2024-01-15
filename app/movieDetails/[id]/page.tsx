@@ -62,21 +62,23 @@ async function MovieDetails({ params: { id } }: Props) {
       </div>
       <div className='lg:w-[900px] w-full'>
         <div className='flex justify-between'>
-          <h1 className='text-5xl font-bold mb-5'>
+          <h1 className='text-3xl md:text-5xl font-bold mb-5'>
             {movie.title} ({movie.release_date?.split('-')[0]})
           </h1>
           <div>
             <div className='flex justify-center items-center gap-2'>
               <GradeRoundedIcon fontSize='large' color='warning' />
-              <span className='text-3xl'>{movie.vote_average.toFixed(1)}</span>
+              <span className='text-xl md:text-3xl'>
+                {movie.vote_average.toFixed(1)}
+              </span>
             </div>
             <p className='text-sm text-right italic'>
               ({movie.vote_count} votes)
             </p>
           </div>
         </div>
-        <div className='text-2xl'>
-          <p className='text-xl italic'>{movie.tagline} </p>
+        <div className='text-xl md:text-2xl'>
+          <p className='text-lg md:text-xl italic'>{movie.tagline} </p>
           <p>
             Runtime: {movie.runtime}m |{' '}
             {movie.genres.map((genre) => genre.name).join(', ')}
@@ -91,9 +93,11 @@ async function MovieDetails({ params: { id } }: Props) {
             <AttachMoneyIcon fontSize='large' style={{ color: '#4caf50' }} />
             {formatAmount(movie.revenue)}
           </p>
-          <p className='text-4xl font-bold text-center py-10'>Overview</p>
+          <p className='text-2xl md:text-4xl font-bold text-center py-10'>
+            Overview
+          </p>
           <p>{movie.overview}</p>
-          <p className='text-4xl font-bold text-center py-10'>
+          <p className='text-2xl md:text-4xl font-bold text-center py-10'>
             Production Companies
           </p>
           <div className='flex gap-10 px-4 flex-wrap justify-center items-center'>
@@ -112,7 +116,7 @@ async function MovieDetails({ params: { id } }: Props) {
                 )
             )}
           </div>
-          <p className='text-4xl font-bold text-center py-10'>
+          <p className='text-2xl md:text-4xl font-bold text-center py-10'>
             Production Countries
           </p>
           <div className='flex gap-10 px-4 flex-wrap justify-center'>
