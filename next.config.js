@@ -12,7 +12,6 @@ const nextConfig = {
       },
     ],
   },
-  output: 'export', // Use 'export' for static export
 };
 
 module.exports = nextConfig;
